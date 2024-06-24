@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <link rel="icon" type="image/svg+xml" href="public/trar_0nc6_220517.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Investimentos</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="h-[100dvh] grid gap-4 grid-cols-3 grid-rows-2">
+    
+    <aside class="bg-emerald-300 flex flex-col justify-between px-4 py-2 row-span-2">
+      <h1 class="font-bold">Calculadora de Investimentos</h1>
+      <form action="" class="flex flex-col gap-2">
+        
+        <label for="investimento__inicial" class="font-bold rounded-l-lg">Investimento Inicial</label>
+        <div class="flex">
+          <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">R$</div>
+          <input id="investimento__inicial" type="text" placeholder="0,00" class="px-2 w-full rounded-r-lg">
+        </div>
+
+        <label for="aportes__iniciais" class="font-bold">Aportes Adicionais</label>
+        <div class="flex">
+          <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">R$</div>
+          <input id="aportes__iniciais" type="number" placeholder="0,00" class="px-2 w-full rounded-r-lg">
+        </div>
+
+        <label for="prazo" class="font-bold">Prazo</label>
+        <div class="flex">
+          <input id="prazo" type="number" placeholder="0" class="px-2 w-full rounded-l-lg">
+          
+          <div class="bg-white">|</div>
+ 
+          <select name="select" class="px-7 rounded-r-lg">
+            <option value="monthly" selected>Mensal</option>
+            <option value="yearly" >Anual</option>
+          </select>
+        </div>
+
+        <label for="rentabilidade" class="font-bold">rentabilidade</label>
+        <div class="flex">
+          <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">%</div>
+          <input id="rentabilidade" placeholder="0" type="text" class="px-2 w-full">
+          
+          <div class="bg-white">|</div>
+          
+          <select name="select" class="px-7 rounded-r-lg">
+            <option value="monthly" selected>Mensal</option>
+            <option value="yearly">Anual</option>
+          </select>
+        </div>
+
+        <label for="impostos" class="font-bold">Impostos sobre o lucro</label>
+        <div class="flex">
+          <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">%</div>
+          <input id="impostos" type="text" placeholder="0,00" class="px-2 w-full rounded-r-lg">
+        </div>
+      </form>
+      
+      <div class="m-auto my-0	">
+        <button class="font-bold text-white bg-black rounded-md	px-12 py-1 hover:bg-slate-800">Calcular</button>
+        <button class="font-bold rounded-md	px-12 py-1 hover:text-white hover:bg-slate-800">Limpar</button>
+      </div>
+    
+    </aside>
+    
+    <main>
+      <h2 class="font-bold">Resultado Final</h2>
+    </main>
+    
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
