@@ -1,21 +1,21 @@
-function convertToMonthlyRate(yearlyRate){
+function convertTomonthlyRate(yearlyRate){
     return yearlyRate ** (1/12);
 }
 
-function generateReturnsArray(
+ export function generateReturnsArray(
     startingAumont = 0,
     timeHorizon = 0,
-    timePeriod = "Monthly",
+    timePeriod = "monthly",
     monthlyContribution = 0,
     returnRate,
-    ratePeriod = "Monthly"
+    ratePeriod = "monthly"
     ){
     if(!startingAumont || !timeHorizon){
         throw new Error("O investimento inicial e o período de investimento devem ser números positivos.");
     }
 
-    const finalReturnRate = ratePeriod === "Monthly" ? 1 + returnRate / 100 : convertToMonthlyRate(1+returnRate/100); 
-    const finalTimeHorizon = timePeriod === "Monthly" ? timeHorizon : timeHorizon*12;
+    const finalReturnRate = ratePeriod === "monthly" ? 1 + returnRate / 100 : convertTomonthlyRate(1+returnRate/100); 
+    const finalTimeHorizon = timePeriod === "monthly" ? timeHorizon : timeHorizon*12;
 
     const referenceInvestimentObject = {
         investedAumont: startingAumont,  // Quanto já foi investido 
