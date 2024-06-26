@@ -14,47 +14,60 @@
       <h1 class="font-bold">Calculadora de Investimentos</h1>
       <form id="investiment-form" action="" class="flex flex-col gap-2">
         
-        <label for="starting-amount" class="font-bold rounded-l-lg">Investimento Inicial</label>
-        <div class="flex">
-          <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">R$</div>
-          <input required id="starting-amount" type="text" placeholder="0,00" class="px-2 w-full rounded-r-lg">
+        <div class="h-[4.5rem]">
+          <label for="starting-amount" class="font-bold rounded-l-lg">Investimento Inicial</label>
+          <div class="flex">
+            <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">R$</div>
+            <input required id="starting-amount" type="text" placeholder="0,00" class="px-2 w-full rounded-r-lg">
+          </div>
+          <p class="hidden text-xs text-red-600">Esse campo precisa ser preenchido com um número maior que zero!</p>
         </div>
 
-        <label for="additional-contribution" class="font-bold">Aportes Adicionais</label>
-        <div class="flex">
-          <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">R$</div>
-          <input id="additional-contribution" type="number" placeholder="0,00" class="px-2 w-full rounded-r-lg">
+        <div class="h-[4.5rem]">
+          <label for="additional-contribution" class="font-bold">Aportes Adicionais</label>
+          <div class="flex">
+            <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">R$</div>
+            <input id="additional-contribution" type="number" placeholder="0,00" class="px-2 w-full rounded-r-lg">
+          </div>
         </div>
 
-        <label for="time-amount" class="font-bold">Prazo</label>
-        <div class="flex">
-          <input required id="time-amount" type="number" placeholder="0" class="px-2 w-full rounded-l-lg">
+        <div class="h-[4.5rem]">
+          <label for="time-amount" class="font-bold">Prazo</label>
+          <div class="flex">
+            <input required id="time-amount" type="number" placeholder="0" class="px-2 w-full rounded-l-lg">
           
-          <div class="bg-white">|</div>
- 
-          <select id="time-period" name="select" class="px-7 rounded-r-lg">
-            <option value="monthly" selected>Mensal</option>
-            <option value="yearly" >Anual</option>
-          </select>
+            <div class="bg-white">|</div>
+            <select id="time-period" name="select" class="px-7 rounded-r-lg">
+              <option value="monthly" selected>Mensal</option>
+              <option value="yearly" >Anual</option>
+            </select>
+          </div>
+          <p class="hidden text-xs text-red-600">Esse campo precisa ser preenchido com um número maior que zero!</p>
         </div>
 
-        <label for="return-rate" class="font-bold">Rentabilidade</label>
-        <div class="flex">
-          <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">%</div>
-          <input required id="return-rate" placeholder="0" type="text" class="px-2 w-full">
+        <div class="h-[4.5rem]">
+          <label for="return-rate" class="font-bold">Rentabilidade</label>
+          <div class="flex">
+            <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">%</div>
+            <input required id="return-rate" placeholder="0" type="text" class="px-2 w-full">
           
-          <div class="bg-white">|</div>
+            <div class="bg-white">|</div>
           
-          <select id="return-rate-period" name="select" class="px-7 rounded-r-lg">
-            <option value="monthly" selected>Mensal</option>
-            <option value="yearly">Anual</option>
-          </select>
+            <select id="return-rate-period" name="select" class="px-7 rounded-r-lg">
+              <option value="monthly" selected>Mensal</option>
+              <option value="yearly">Anual</option>
+            </select>
+          </div>
+          <p class="hidden text-xs text-red-600">Esse campo precisa ser preenchido com um número maior que zero!</p>
         </div>
 
-        <label for="tax-rate" class="font-bold">Impostos sobre o lucro</label>
-        <div class="flex">
-          <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">%</div>
-          <input required id="tax-rate" type="text" placeholder="0,00" class="px-2 w-full rounded-r-lg">
+        <div class="h-[4.5rem]">
+          <label for="tax-rate" class="font-bold">Impostos sobre o lucro</label>
+          <div class="flex">
+            <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">%</div>
+            <input required id="tax-rate" type="text" placeholder="0,00" class="px-2 w-full rounded-r-lg">
+          </div>
+          <p class="hidden text-xs text-red-600">Esse campo precisa ser preenchido com um número maior que zero!</p>
         </div>
       </form>
       
