@@ -141,7 +141,7 @@ function renderProgression(event){
 
 }
 
-form.addEventListener("submit", renderProgression);
+// form.addEventListener("submit", renderProgression);
 clear_btn.addEventListener('click', clearForm);
 
 for(const formElement of form){
