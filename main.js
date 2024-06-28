@@ -1,7 +1,25 @@
 import { generateReturnsArray } from "./src/investimentGoals";
+import { Chart } from "chart.js/auto";
 
 const form = document.getElementById("investiment-form");
 const clear_btn = document.getElementById("clear-results");
+
+const finalMoneyDistribution = document.getElementById('final-money-distribution');
+const progression = document.getElementById('progression');
+let doughnutChartReference = {};
+let barChartReference = {};
+
+function isEmpty(obj){
+     return Object.keys(obj).length === 0;
+}
+
+function resetCharts(){
+     if(!isEmpty(doughnutChartReference) && !isEmpty(barChartReference)){
+         doughnutChartReference.destroy();
+         barChartReference.destroy();
+     }
+}
+
 
 function validateInput(evt){
     const input = evt.target.value.replace(",", ".");
@@ -23,7 +41,7 @@ function validateInput(evt){
     }
 }
 
-function claerForm(){
+function clearForm(){
     for(const formElement of form){
         if(formElement.tagName === "INPUT"){
             formElement.value = '';
@@ -35,9 +53,13 @@ function claerForm(){
         errorInputContainer.classList.remove('error');
         errorInputContainer.parentElement.querySelector('p').classList.add('hidden');
     }
+    resetCharts();
 
 }
 
+function formatCurrency(value){
+    return value.toFixed(2);
+}
 
 
 function renderProgression(event){
@@ -45,6 +67,8 @@ function renderProgression(event){
     if(document.querySelector('.error')){
         return
     }
+    resetCharts();
+
     const p_list = document.getElementsByTagName('p');
     const startingAmount = Number(document.getElementById("starting-amount").value.replace(',', '.')); //
     const additionalContribution = Number(document.getElementById("additional-contribution").value);
@@ -57,11 +81,68 @@ function renderProgression(event){
     const returnsArray = generateReturnsArray(startingAmount, timeAmount, timePeriod, 
                                               additionalContribution, returnRate, returnRatePeriod);
 
-    console.log(returnsArray);
+    const finalInvestiment = returnsArray[returnsArray.length-1];
+
+    doughnutChartReference = new Chart(finalMoneyDistribution, {
+        type: 'doughnut',
+        data: {
+            labels: [
+              'Total Investido',
+              'Rendimento',
+              'Imposto'
+            ],
+            datasets: [{
+              data: [
+                formatCurrency(finalInvestiment.totalAumont),
+                formatCurrency(finalInvestiment.totalinterestReturns * (1-taxRate/100)),
+                formatCurrency(finalInvestiment.totalinterestReturns * (taxRate/100))
+                ],
+              backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+              ],
+              hoverOffset: 4
+            }]
+          },
+      });
+
+      barChartReference = new Chart(progression, {
+        type: 'bar',
+        data: {
+            labels:returnsArray.map(arrayObject => arrayObject.month),
+            datasets: [
+                {
+                    label: "Total Investido",
+                    data: returnsArray.map(arrayObject => formatCurrency(arrayObject.investedAmount)),
+                    backgroundColor: 'rgb(255, 99, 132)',
+                },
+
+                {
+                    label: "Retorno do Investimento",
+                    data: returnsArray.map(arrayObject => formatCurrency(arrayObject.interestReturns)),
+                    backgroundColor: 'rgb(54, 162, 235)',
+                },
+            ]
+          }, 
+          
+          options: {
+            responsive: true,
+            scales: {
+              x: {
+                stacked: true,
+              },
+              y: {
+                stacked: true
+              }
+            }
+          }
+      });
+
 }
 
 form.addEventListener("submit", renderProgression);
-clear_btn.addEventListener('click', claerForm);
+clear_btn.addEventListener('click', clearForm);
 
 for(const formElement of form){
     if(formElement.tagName === "INPUT"){

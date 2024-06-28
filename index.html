@@ -14,7 +14,7 @@
       <h1 class="font-bold">Calculadora de Investimentos</h1>
       <form id="investiment-form" action="" class="flex flex-col gap-2">
         
-        <div class="h-[4.5rem]">
+        <div class="h-[4.25rem]">
           <label for="starting-amount" class="font-bold rounded-l-lg">Investimento Inicial</label>
           <div class="flex">
             <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">R$</div>
@@ -23,7 +23,7 @@
           <p class="hidden text-xs text-red-600">Esse campo precisa ser preenchido com um número maior que zero!</p>
         </div>
 
-        <div class="h-[4.5rem]">
+        <div class="h-[4.25rem]">
           <label for="additional-contribution" class="font-bold">Aportes Adicionais</label>
           <div class="flex">
             <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">R$</div>
@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <div class="h-[4.5rem]">
+        <div class="h-[4.25rem]">
           <label for="time-amount" class="font-bold">Prazo</label>
           <div class="flex">
             <input required id="time-amount" type="number" placeholder="0" class="px-2 w-full rounded-l-lg">
@@ -45,7 +45,7 @@
           <p class="hidden text-xs text-red-600">Esse campo precisa ser preenchido com um número maior que zero!</p>
         </div>
 
-        <div class="h-[4.5rem]">
+        <div class="h-[4.25rem]">
           <label for="return-rate" class="font-bold">Rentabilidade</label>
           <div class="flex">
             <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">%</div>
@@ -61,7 +61,7 @@
           <p class="hidden text-xs text-red-600">Esse campo precisa ser preenchido com um número maior que zero!</p>
         </div>
 
-        <div class="h-[4.5rem]">
+        <div class="h-[4.25rem]">
           <label for="tax-rate" class="font-bold">Impostos sobre o lucro</label>
           <div class="flex">
             <div class="bg-emerald-200 py-0.25 px-8 rounded-l-lg">%</div>
@@ -71,15 +71,23 @@
         </div>
       </form>
       
-      <div class="m-auto my-0	">
+      <div class="m-auto my-5	">
         <button form="investiment-form" id="calculate-results" class="font-bold text-white bg-black rounded-md	px-12 py-1 hover:bg-slate-800">Calcular</button>
         <button id="clear-results" class="font-bold rounded-md	px-12 py-1 hover:text-white hover:bg-slate-800">Limpar</button>
       </div>
     
     </aside>
     
-    <main>
-      <h2 class="font-bold">Resultado Final</h2>
+    <main class="h-full col-span-2 row-span-2">
+      <section class="h-[36%]  flex flex-col items-center">
+        <h2 class="self-start	font-bold">Resultado Final:</h2>
+        <canvas id="final-money-distribution" class="pb-5"></canvas>
+      </section>
+
+      <section class="h-[56%] flex flex-col items-center">
+        <h2 class="self-start	font-bold">Progressão:</h2>
+        <canvas id="progression"></canvas>
+      </section>
     </main>
     
 

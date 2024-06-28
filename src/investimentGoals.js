@@ -18,7 +18,7 @@ function convertTomonthlyRate(yearlyRate){
     const finalTimeHorizon = timePeriod === "monthly" ? timeHorizon : timeHorizon*12;
 
     const referenceInvestimentObject = {
-        investedAumont: startingAumont,  // Quanto já foi investido 
+        investedAmount: startingAumont,  // Quanto já foi investido 
         interestReturns: 0,  // Quanto retornou com juros
         totalinterestReturns: 0,  // Quanto retornou no total
         month: 0,
@@ -29,12 +29,12 @@ function convertTomonthlyRate(yearlyRate){
     
     for(let time = 1; time <= finalTimeHorizon; time++){
         const totalAumont = returnsArray[time-1].totalAumont * finalReturnRate + monthlyContribution;
-        const interestReturns = returnsArray[time-1].totalAumont * finalReturnRate;
-        const investedAumont = startingAumont + monthlyContribution*time;
-        const totalinterestReturns = totalAumont - investedAumont; 
+        const interestReturns = returnsArray[time-1].totalAumont * (finalReturnRate-1);
+        const investedAmount = startingAumont + monthlyContribution*time;
+        const totalinterestReturns = totalAumont - investedAmount; 
         
         returnsArray.push({
-            investedAumont,
+            investedAmount,
             interestReturns,
             totalinterestReturns,
             month: time,
