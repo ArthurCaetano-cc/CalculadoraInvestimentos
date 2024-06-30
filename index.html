@@ -8,7 +8,7 @@
     <title>Calculadora de Investimentos</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body class="h-[100dvh] grid gap-4 grid-cols-3 grid-rows-2">
+  <body class="h-[100dvh] grid grid-cols-3 grid-rows-2"> <!--gap-4 -->
     
     <aside class="bg-emerald-300 flex flex-col justify-between px-4 py-2 row-span-2">
       <h1 class="font-bold">Calculadora de Investimentos</h1>
@@ -88,8 +88,12 @@
         <h2 class="self-start	font-bold">Progressão:</h2>
         <canvas id="progression"></canvas>
       </section> -->
-    </main>
-    
+
+      <section id="table-container" class="h-full overflow-y-auto">
+        <p class="font-bold text-lg text-center">Resultados Mensais:</p>
+        <table id="results-table" class="w-full max-h-full border border-separate"></table>
+      </section>
+    </main>    
 
     <script type="module" src="/main.js"></script>
   </body>
