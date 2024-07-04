@@ -8,7 +8,7 @@
     <title>Calculadora de Investimentos</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body class="h-[100dvh] grid grid-cols-3 grid-rows-2"> <!--gap-4 -->
+  <body class="h-[100dvh] gap-0 grid grid-cols-3 grid-rows-2"> 
     
     <aside class="bg-emerald-300 flex flex-col justify-between px-4 py-2 row-span-2">
       <h1 class="font-bold">Calculadora de Investimentos</h1>
@@ -78,21 +78,29 @@
     
     </aside>
     
-    <main class="h-full col-span-2 row-span-2">
-      <!-- <section class="h-[36%]  flex flex-col items-center">
-        <h2 class="self-start	font-bold">Resultado Final:</h2>
-        <canvas id="final-money-distribution" class="pb-5"></canvas>
-      </section>
+    <main class="h-full col-span-2 row-span-2 relative">
+      <button id="left-arrow" class="text-xl font-bold absolute top-0 bottom-0 bg-slate-400 opacity-50 w-4 hover:opacity-100 focus-100" > &#8249;</button>
+      <button id="right-arrow" class="text-xl font-bold absolute top-0 bottom-0 right-0 bg-slate-400	opacity-50 w-4 hover:opacity-100 focus-100"> &#8250; </button>
+      
+      <div id="carousel" class="w-full h-full flex overflow-x-auto">
+        <section id="graphs-container" class="basis-full shrink-0">
+          <div class="h-[36%]  flex flex-col items-center">
+            <h2 class="self-start	font-bold mx-5">Resultado Final:</h2>
+            <canvas id="final-money-distribution" class="pb-5"></canvas>
+          </div>
+        
+          <div class="h-[56%] flex flex-col items-center">
+            <h2 class="self-start	font-bold mx-5">Progressão:</h2>
+            <canvas id="progression"></canvas>
+          </div>
+        </section>
 
-      <section class="h-[56%] flex flex-col items-center">
-        <h2 class="self-start	font-bold">Progressão:</h2>
-        <canvas id="progression"></canvas>
-      </section> -->
+        <section id="table-container" class="h-full overflow-y-auto basis-full shrink-0	">
+          <p class="font-bold text-lg text-center">Resultados Mensais:</p>
+          <table id="results-table" class="w-full max-h-full border border-separate"></table>
+        </section>
+      </div>
 
-      <section id="table-container" class="h-full overflow-y-auto">
-        <p class="font-bold text-lg text-center">Resultados Mensais:</p>
-        <table id="results-table" class="w-full max-h-full border border-separate"></table>
-      </section>
     </main>    
 
     <script type="module" src="/main.js"></script>
